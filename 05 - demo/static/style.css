@@ -1,0 +1,58 @@
+html,body { height:100%; }
+.container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  background-color:#eee;
+  align-items: stretch;
+}
+
+.side-area {
+  grid-area: 1 / 1 / 2 / 2;
+}
+.content-area {
+  grid-area: 1 / 2 / 2 / 3;
+}
+
+.image{
+  width:calc(100% - 20px);
+  padding:10px;
+}
+
+.image-small{
+  width:40px;
+  height: 40px;
+  border-radius:50%;
+  border:2px solid black;
+  object-fit: contain;
+  background-color:white;
+}
+
+.image-small:hover{
+  border:2px solid green;
+}
+
+.image-small.is-active{
+  border:2px solid lime;
+}
+.variants{
+  list-style: none;
+  display: flex;
+  column-gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  margin:0;
+  padding:0;
+}
+.rarity_circle{
+  display: inline-block;
+  margin:0 5px;
+  width:10px;
+  height:10px;
+  border-radius: 50%;
+  background-color:gold;
+  border:  1px solid darkgoldenrod;
+}
