@@ -1,0 +1,27 @@
+<!--html-->
+<div style="width:100px;height:100px;background-color:red;border-radius: 50%"></div>
+<div style="width:100px;height:100px;background-color:yellow;border-radius: 50%"></div>
+<div style="width:100px;height:100px;background-color:green;border-radius: 50%"></div>
+
+<!--only show active color-->
+<div v-if="light==='red'" style="width:100px;height:100px;background-color:red;border-radius: 50%"></div>
+<div v-if="light==='yellow'" style="width:100px;height:100px;background-color:yellow;border-radius: 50%"></div>
+<div v-if="light==='green'" style="width:100px;height:100px;background-color:green;border-radius: 50%"></div>
+
+<!--show active color and others gray-->
+<div v-if="light==='red'" style="width:100px;height:100px;background-color:red;border-radius: 50%"></div>
+<div v-else style="width:100px;height:100px;background-color:gray;border-radius: 50%"></div>
+<div v-if="light==='yellow'" style="width:100px;height:100px;background-color:yellow;border-radius: 50%"></div>
+<div v-else style="width:100px;height:100px;background-color:gray;border-radius: 50%"></div>
+<div v-if="light==='green'" style="width:100px;height:100px;background-color:green;border-radius: 50%"></div>
+<div v-else style="width:100px;height:100px;background-color:gray;border-radius: 50%"></div>
+
+<!--no js in strings-->
+<div style="width:100px;height:100px;background-color:{{ light==='red'?'red':'grey' }};border-radius: 50%"></div>
+<div style="width:100px;height:100px;background-color:yellow;border-radius: 50%"></div>
+<div style="width:100px;height:100px;background-color:green;border-radius: 50%"></div>
+
+<!--use databinding-->
+<div :style="light==='red'?'background-color:red':'background-color:gray'" style="width:100px;height:100px;border-radius: 50%"></div>
+<div :style="light==='yellow'?'background-color:yellow':'background-color:gray'" style="width:100px;height:100px;border-radius: 50%"></div>
+<div :style="light==='green'?'background-color:green':'background-color:gray'" style="width:100px;height:100px;border-radius: 50%"></div>

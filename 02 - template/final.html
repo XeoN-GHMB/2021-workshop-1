@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VueJs Workshop #1</title>
+
+    <script src="https://unpkg.com/vue@next"></script>
+
+</head>
+
+<body>
+    <h1>Vue Workshop #1</h1>
+
+    <div id="vue">
+        <h2>Hallo {{ title }}</h2>
+        <div style="background-color:black;width:100px; padding: 5px;">
+            <div :style="light==='red'?'background-color:red':'background-color:gray'" style="width:100px;height:100px;border-radius: 50%"></div>
+            <div :style="light==='yellow'?'background-color:yellow':'background-color:gray'" style="width:100px;height:100px;border-radius: 50%"></div>
+            <div :style="light==='green'?'background-color:green':'background-color:gray'" style="width:100px;height:100px;border-radius: 50%"></div>
+        </div>
+        <div>{{ light }}</div>
+    </div>
+
+    <script src="static/app.js"></script>
+</body>
+
+</html>

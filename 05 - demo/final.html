@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VueJs Workshop #1</title>
+
+    <script src="https://unpkg.com/vue@next"></script>
+
+</head>
+
+<body>
+    <h1>Vue Workshop #1</h1>
+
+    <div id="vue">
+
+       <div class="container">
+            <div class="side-area">
+                <img class="image" :src="state.active_variant['image']">
+            </div>
+            <div  class="content-area">
+                <h2>Jelli - {{ state.active_variant["name"] }} ({{ state.active_variant["amount"] }} auf Lager)</h2>
+                <h3 v-if="state.active_variant['amount']===0 ">! Leider ausverkauft !</h3>
+                <h3 v-else-if="state.active_variant['amount']<20">! Nur noch wenige auf lager !</h3>
+                <ul class="variants">
+                    <li v-for="(variant,idx) in state.variants"><img @click="updateIndex(idx)" :class="{'is-active':idx===state.active_variant_index}" class="image-small" :src="variant['image']" :title="variant['name']"></li>
+                </ul>
+
+                <p>{{ state.active_variant["descr"] }}</p>
+
+                <h3>Details</h3>
+                <ul>
+                    <li>Farbe: {{ state.active_variant["color"] }}</li>
+                    <li>Geschmack: {{ state.active_variant["taste"] }}</li>
+                    <li v-if="state.active_variant['limited']">limitierte Edition!</li>
+                    <li>Seltenheit: <div class="rarity_circle" v-for="i in state.active_variant['rarity']"></div></li>
+                </ul>
+
+                <button :disabled="state.active_variant['amount']===0">Kaufen</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="static/app_final.js"></script>
+    <link rel="stylesheet" href="static/style.css"/>
+</body>
+
+</html>

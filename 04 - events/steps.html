@@ -1,0 +1,17 @@
+<!-- Add event-->
+
+function activateLight(color){
+    console.log(color)
+    activelight = color
+}
+<div v-for="value in ['red','yellow','green']" @click="activateLight(value)" :class="[getLight(value)]" class="light"></div>
+
+<!-- add reactive-->
+let state = Vue.reactive({
+    activelight:"red"
+})
+<div>{{ state.activelight }}</div>
+
+
+<!--move lights-->
+let lights = ['red','yellow','green']

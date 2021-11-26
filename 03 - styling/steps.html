@@ -1,0 +1,34 @@
+<div :style="light==='red'?'background-color:red':'background-color:gray'" class="light"></div>
+<div :style="light==='yellow'?'background-color:yellow':'background-color:gray'" class="light"></div>
+<div :style="light==='green'?'background-color:green':'background-color:gray'" class="light"></div>
+
+
+<!--css class databinding-->
+<div :class="[light==='red'?'red-light':'']" class="light"></div>
+<div :class="[light==='yellow'?'yellow-light':'']" class="light"></div>
+<div :class="[light==='green'?'green-light':'']" class="light"></div>
+
+
+<div :class="{'red-light':light==='red'}" class="light"></div>
+<div :class="{'yellow-light':light==='yellow'}" class="light"></div>
+<div :class="{'green-light':light==='green'}" class="light"></div>
+
+
+<!--use functions to encapsulate logic-->
+const activelight = "red"
+
+function getLight(color){
+    if(color === activelight){
+        return `${color}-light`
+    }
+    return ''
+}
+
+
+<div :class="[getLight('red')]" class="light"></div>
+<div :class="[getLight('yellow')]" class="light"></div>
+<div :class="[getLight('green')]" class="light"></div>
+
+
+<!-- use for loop -->
+<div v-for="value in ['red','yellow','green']" :class="[getLight(value)]" class="light"></div>
